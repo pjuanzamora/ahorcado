@@ -47,12 +47,27 @@ public class JuegoAhorcado {
 	
 	public static void inicializarVectores(String palabra, String vPalabraSecreta[], String vAciertos[],String vFallos[]) {
 		for (int i = 0; i < vFallos.length; i++) {
-			vFallos[i] = "_ ";
+			vFallos[i] = "_";
 		}
 		for (int i = 0; i < vPalabraSecreta.length; i++) {
 			//Trocear la palabra en letras al vector
+			vPalabraSecreta[i] = palabra.substring(i, i+1);
+			vAciertos[i] = "_";
+		}
+		
+		
+	}
+	
+	public static void dibujarAciertorErrores(String[] vFallos, String[] vAciertos) {
+		
+		//Imprimir los fallos
+		for (int i = 0; i < vFallos.length; i++) {
+		 
+		}
+		
+		//Imprimir los aciertos
+		for (int i = 0; i < vAciertos.length; i++) {
 			
-			vAciertos[i] = "_ ";
 		}
 	}
 	
@@ -77,9 +92,13 @@ public class JuegoAhorcado {
 			//3º Dibujar muñeco
 			dibujarMuneco(vidas);
 			//4º Dibujar aciertos y errores
+			dibujarAciertorErrores(vFallos, vAciertos);
+			
 			vidas--;
 		}while(vidas>=0);
 
 	}
+
+	
 
 }
