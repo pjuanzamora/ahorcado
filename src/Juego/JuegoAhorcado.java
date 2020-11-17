@@ -61,14 +61,27 @@ public class JuegoAhorcado {
 	public static void dibujarAciertorErrores(String[] vFallos, String[] vAciertos) {
 		
 		//Imprimir los fallos
+		System.out.println("Fallos cometidos:");
 		for (int i = 0; i < vFallos.length; i++) {
-		 
+			if (!vFallos[i].equals("_")) {
+				System.out.print(vFallos[i] + " ");
+			}
 		}
 		
+		//System.out.println("");
+		System.out.println("\n¡Palabra Secreta!");
 		//Imprimir los aciertos
 		for (int i = 0; i < vAciertos.length; i++) {
-			
+			System.out.print(vAciertos[i]+ " ");
 		}
+	}
+	
+	//Comprobar que la letra está en vPalabraSecreta
+	//Si esta la guardo en vAciertos, sino la guardo en vFallos
+	public static void comprobarLetraIntroducida(String letra, String[] vPalabraSecreta, String[] vAciertos,
+			String[] vFallos) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	public static void main(String[] args) {
@@ -88,6 +101,7 @@ public class JuegoAhorcado {
 			System.out.println("Dime una letra");
 			letra = leer.next();
 			//2º Comprobar si la letra está en la palabra
+			comprobarLetraIntroducida(letra,vPalabraSecreta, vAciertos, vFallos);
 			
 			//3º Dibujar muñeco
 			dibujarMuneco(vidas);
@@ -98,7 +112,5 @@ public class JuegoAhorcado {
 		}while(vidas>=0);
 
 	}
-
-	
 
 }
