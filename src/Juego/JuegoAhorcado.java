@@ -78,10 +78,10 @@ public class JuegoAhorcado {
 	
 	//Comprobar que la letra está en vPalabraSecreta
 	//Si esta la guardo en vAciertos, sino la guardo en vFallos
-	public static void comprobarLetraIntroducida(String letra, String[] vPalabraSecreta, String[] vAciertos,
+	public static int comprobarLetraIntroducida(int vidas, String letra, String[] vPalabraSecreta, String[] vAciertos,
 			String[] vFallos) {
 		// TODO Auto-generated method stub
-		
+		return vidas;
 	}
 	
 	public static void main(String[] args) {
@@ -101,7 +101,7 @@ public class JuegoAhorcado {
 			System.out.println("Dime una letra");
 			letra = leer.next();
 			//2º Comprobar si la letra está en la palabra
-			comprobarLetraIntroducida(letra,vPalabraSecreta, vAciertos, vFallos);
+			vidas = comprobarLetraIntroducida(vidas, letra,vPalabraSecreta, vAciertos, vFallos);
 			
 			//3º Dibujar muñeco
 			dibujarMuneco(vidas);
