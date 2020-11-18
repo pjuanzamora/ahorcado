@@ -105,8 +105,17 @@ public class JuegoAhorcado {
 	
 	
 	public static boolean heGanado(String vAciertos[]) {
+		//boolean ganado = true;
 		
-		
+		for (int i = 0; i<vAciertos.length; i++) {
+			if (vAciertos[i].equals("_")) {
+				return false;
+//				ganado = false;
+//				break;
+			}
+		}
+		//return ganado;
+		return true;
 	}
 	
 	public static void main(String[] args) {
