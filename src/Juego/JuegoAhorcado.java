@@ -42,6 +42,7 @@ public class JuegoAhorcado {
 	public static boolean comprobarLetraPalabra(String vPalabraSecreta[], String letra) {
 		boolean encontrado=false;
 		
+		
 		return encontrado;
 	}
 	
@@ -80,8 +81,32 @@ public class JuegoAhorcado {
 	//Si esta la guardo en vAciertos, sino la guardo en vFallos
 	public static int comprobarLetraIntroducida(int vidas, String letra, String[] vPalabraSecreta, String[] vAciertos,
 			String[] vFallos) {
-		// TODO Auto-generated method stub
+		boolean encontrado = false;
+		
+		for (int i=0 ; i<vPalabraSecreta.length; i++) {
+			if (letra.equalsIgnoreCase(vPalabraSecreta[i])) {
+				vAciertos[i] = letra;
+				encontrado = true;
+			}
+		}
+		
+		if (encontrado == false) {
+			for (int i = 0; i<vFallos.length; i++) {
+				if (vFallos[i].equals("_")) {
+					vFallos[i]=letra;
+					vidas--;
+					break;
+				}
+			}
+		}
+		
 		return vidas;
+	}
+	
+	
+	public static boolean heGanado(String vAciertos[]) {
+		
+		
 	}
 	
 	public static void main(String[] args) {
@@ -108,8 +133,8 @@ public class JuegoAhorcado {
 			//4º Dibujar aciertos y errores
 			dibujarAciertorErrores(vFallos, vAciertos);
 			
-			vidas--;
-		}while(vidas>=0);
+			
+		}while(vidas>=0 && heGanado(vAciertos)==false);
 
 	}
 
