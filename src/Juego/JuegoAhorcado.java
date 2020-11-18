@@ -77,28 +77,47 @@ public class JuegoAhorcado {
 		}
 	}
 	
+	public static boolean letraRepetida(String letra, String vFallos[]) {
+		boolean repe = false;
+		
+		for (int i = 0; i< vFallos.length; i++) {
+			if (vFallos[i].equalsIgnoreCase(letra)) {
+				repe = true;
+			}
+		}
+		
+		return repe;
+	}
+	
 	//Comprobar que la letra está en vPalabraSecreta
 	//Si esta la guardo en vAciertos, sino la guardo en vFallos
 	public static int comprobarLetraIntroducida(int vidas, String letra, String[] vPalabraSecreta, String[] vAciertos,
 			String[] vFallos) {
 		boolean encontrado = false;
 		
-		for (int i=0 ; i<vPalabraSecreta.length; i++) {
-			if (letra.equalsIgnoreCase(vPalabraSecreta[i])) {
-				vAciertos[i] = letra;
-				encontrado = true;
+		//Comprobar que no se repita una palabra fallada
+		if (letraRepetida(letra, vFallos)==false) {
+			
+			for (int i=0 ; i<vPalabraSecreta.length; i++) {
+				if (letra.equalsIgnoreCase(vPalabraSecreta[i])) {
+					vAciertos[i] = letra;
+					encontrado = true;
+				}
 			}
-		}
-		
-		if (encontrado == false) {
-			for (int i = 0; i<vFallos.length; i++) {
-				if (vFallos[i].equals("_")) {
-					vFallos[i]=letra;
-					vidas--;
-					break;
+			
+			if (encontrado == false) {
+				for (int i = 0; i<vFallos.length; i++) {
+					if (vFallos[i].equals("_")) {
+						vFallos[i]=letra;
+						vidas--;
+						break;
+					}
 				}
 			}
 		}
+		
+		
+		
 		
 		return vidas;
 	}
